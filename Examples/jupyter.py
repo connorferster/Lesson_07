@@ -4,7 +4,8 @@ Use dir(rjc.jupyter) for a directory of the functions.
 
 Connor Ferster, cferster@rjc.ca 2021
 """
-from IPython.display import display
+from IPython.display import display, Markdown
+import datetime
 
 def title_block(proj_name = "", proj_id = "", designer = "", _test=False, **kwargs) -> None:
     """
@@ -13,11 +14,6 @@ def title_block(proj_name = "", proj_id = "", designer = "", _test=False, **kwar
     '_test' argument is used for internal testing: returns the markdown as a string instead
     of displaying in Jupyter.
     """
-    import datetime
-    try:
-        from IPython.display import Markdown
-    except ImportError:
-        raise ImportError("title_block() function can only be called from within Jupyter.")
     todays_date = datetime.datetime.now().strftime("%Y-%m-%d")
     md = (
         f"**Project:** {proj_name}<br>\n"
